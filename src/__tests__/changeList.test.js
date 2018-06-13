@@ -36,13 +36,42 @@ describe('test for ChangeList component', ()=>{
 
   it('tests if list exists', ()=>{
     let wrapper = shallow(<ChangeList/>);
-    expect(wrapper.find('ul').exists()).toBe(true);
+    expect(wrapper.find('ol').exists()).toBe(true);
   });
 
-  it('tests length of list', ()=>{
+  it('tests correct length of list', ()=>{
     let wrapper = shallow(<ChangeList/>);
-    wrapper.setState({list:["hello", "ahoj", "ciao"]});
+    wrapper.setState({list:["sleep", "eat", "shop"]});
     expect(wrapper.state('list').length).toBe(3);
   });
+
+
+  it('should render children when passed in', () => {
+    let wrapper = shallow((
+      <ChangeList>
+        <ol id="listChange" />
+      </ChangeList>
+    ));
+    expect(wrapper.contains(<ol id="listChange"/>)).toBe(true);
+  });
+
+  it('should render <li/> children in list', () => {
+    let wrapper = shallow((
+      <ol>
+        <li />
+      </ol>
+    ));
+    expect(wrapper.contains(<li/>)).toBe(true);
+  });
+
+
+  it('simulates click events delete item', () => {
+    let wrapper = mount(<ChangeList />);
+    wrapper.setState({list:["sleep", "eat", "shop"]});
+    expect(wrapper.state('list').length).toBe(3);
+    let wrappedButton = wrapper.find('.deleteBtn').at(0);
+    wrappedButton.simulate('click');
+    expect( wrapper.state('list').length).toBe(2);
+});
 
 })

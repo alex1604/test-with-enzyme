@@ -5,31 +5,40 @@ import React, {Component} from 'react';
 class ChangeList extends Component{
   constructor(props){
     super(props);
-    this.state = {inputList:'', list: []}
+    this.state = {inputList:'', list: [], disabled: true}
   }
 
   addToList = event=>{
-    let newelement = this.state.inputList;
-    this.setState({list: [...this.state.list, newelement], inputList:''});
+    let newElement = this.state.inputList;
+    this.setState({list: [...this.state.list, newElement], inputList:'', disabled:true});
   }
   handleInput = event=>{
-    this.setState({inputList: event.target.value})
+    this.setState({inputList: event.target.value, disabled:false})
+  }
+  handleDelete = event =>{
+    let item = event.target.name;
+    let newList = [];
+    for(let x = 0; x < this.state.list.length; x++){
+      if(this.state.list[x] !== this.state.list[item]){
+        newList.push(this.state.list[x]);
+      }
+    }
+    this.setState({list: newList});
   }
   render(){
     let  listItems = this.state.list.map((item, index) =>
     <li key={index+item}>
       <span>{item}</span>
-      <button onClick={this.handleDelete}>Delete</button>
+      <button name={index} className="deleteBtn" onClick={event => this.handleDelete(event)}>Delete</button>
     </li>)
-
 
     return(
       <div>
         <input id="inputChange" type="text" placeholder="Write text"
         value={this.state.inputList}
         onChange={this.handleInput}/>
-        <button onClick={this.addToList}>Add to list</button>
-        <ul id="listChange">{listItems}</ul>
+        <button className="addBtn" onClick={this.addToList} disabled={this.state.disabled}>Add to list</button>
+        <ol id="listChange">{listItems}</ol>
       </div>
     )
   }
