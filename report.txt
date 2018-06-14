@@ -1,0 +1,35 @@
+Rapporten (Saras kod)
+
+1.Har ni testat samma saker?
+2.Vilka är de viktigaste testfallen? Varför är de viktiga?
+3.Finns det några onödiga testfall i deras kod? Varför är de onödiga?
+
+Calculator:
+
+1.
+    Det finns många tests som båda har gjort. Däremot finns det några tests som är lite olika 
+    eller som inte finns alls i den andra gruppens test suite.
+    
+    I allmänheten brukar Sara skapa fler testfall för en och samma test. Till exempel så testar
+    hon om det går att utöka värdet från 0 till 1 samt om det går att utöka värdet från 1 till
+    2. Hon gör så här för Saras initial statet innehåller en töm sträng och då är det viktigt att
+     hon testar om det går att omvandla töm sträng till nummer 0. 
+
+    I vårt komponent så är initial statet nummer 0 och då räcker det att vi bara testar en gång
+    om det går att utöka värdet genom.
+
+    Sara har fler olika testfall för att testa om statet uppdateras korrekt när man skriver 
+    något nummer i inputfältet medan vi testar bara med ett nummer. Dock testar vi också att 
+    inget händer om man försöker skicka värden 'null', 'undefined', 'infinity' eller töm sträng,
+    vilket Sara inte gör.
+
+    Sara har inget specifikt tesfall som testar om det går att förtsätta lägga till siffror 
+    till det befintliga nummer i inputfältet, vilket vi har. Dessutom så testar Sara inte vad
+    händer om man anger en sträng som inte är töm i inputfältet.
+
+2. 
+    Min åsikte är att de viktigaste testfallen är dem som testar typkonverteringen samt de som
+    testar gränsvärden.
+
+3.
+    Jag tror inte det finns några onödiga testfallen.
