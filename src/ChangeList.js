@@ -17,7 +17,7 @@ class ChangeList extends Component{
   }
   handleDelete = event =>{
     let item = event.target.name;
-    let newList = [];
+    let newList = []
     for(let x = 0; x < this.state.list.length; x++){
       if(this.state.list[x] !== this.state.list[item]){
         newList.push(this.state.list[x]);
