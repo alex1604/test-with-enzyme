@@ -7,29 +7,37 @@ Rapporten (Saras kod)
 Calculator:
 
 1.
-    Det finns många tests som båda har gjort. Däremot finns det några tests som är lite olika 
-    eller som inte finns alls i den andra gruppens test suite.
-    
-    I allmänheten brukar Sara skapa fler testfall för en och samma test. Till exempel så testar
-    hon om det går att utöka värdet från 0 till 1 samt om det går att utöka värdet från 1 till
-    2. Hon gör så här för Saras initial statet innehåller en töm sträng och då är det viktigt att
-     hon testar om det går att omvandla töm sträng till nummer 0. 
+    Det finns många tests som båda har gjort. Däremot finns det några tests som är lite olika eller som inte finns alls i den andra gruppens test suite.
 
-    I vårt komponent så är initial statet nummer 0 och då räcker det att vi bara testar en gång
-    om det går att utöka värdet genom.
+    I allmänheten brukar Sara skapa fler testfall för en och samma test. Till exempel så testar hon om det går att utöka värdet från 0 till 1 samt om det går att utöka värdet från 1 till 2. Hon gör så här för Saras initial statet innehåller en töm sträng och då är det viktigt att hon testar om det går att omvandla töm sträng till nummer 0.
 
-    Sara har fler olika testfall för att testa om statet uppdateras korrekt när man skriver 
-    något nummer i inputfältet medan vi testar bara med ett nummer. Dock testar vi också att 
-    inget händer om man försöker skicka värden 'null', 'undefined', 'infinity' eller töm sträng,
-    vilket Sara inte gör.
+    I vårt komponent så är initial statet nummer 0 och då räcker det att vi bara testar en gång om det går att utöka värdet genom.
 
-    Sara har inget specifikt tesfall som testar om det går att förtsätta lägga till siffror 
-    till det befintliga nummer i inputfältet, vilket vi har. Dessutom så testar Sara inte vad
-    händer om man anger en sträng som inte är töm i inputfältet.
+    Sara har fler olika testfall för att testa om statet uppdateras korrekt när man skriver något nummer i inputfältet medan vi testar bara med ett nummer. Dock testar vi också att inget händer om man försöker skicka värden 'null', 'undefined', 'infinity' eller töm sträng, vilket Sara inte gör.
 
-2. 
-    Min åsikte är att de viktigaste testfallen är dem som testar typkonverteringen samt de som
+    Sara har inget specifikt tesfall som testar om det går att förtsätta lägga till siffror till det befintliga nummer i inputfältet, vilket vi har. Dessutom så testar Sara inte vad händer om man anger en sträng som inte är töm i inputfältet.
+
+2.
+    Min åsikt är att de viktigaste testfallen är dem som testar typkonverteringen samt de som
     testar gränsvärden.
 
 3.
     Jag tror inte det finns några onödiga testfallen.
+
+
+Redigerbar lista (jämfört med Johans&Elins kod)
+
+1. I stort sett finns det likheter i mängd och innehåll i våra och deras testfall, till ex. tester som kollar om komponent och input renderas rätt. Även tester som simulerar alla möjliga click/onChange-funktioner har vi båda testat. Till skillnad mot dem har vi inte testat initial state på input-fältet. En till skillnad kan vara att vi inte testar om det går att lägga till en tom sträng även om initial state på lägg-till-listan-knappen är i det fallet disabled.
+
+2. De viktigaste testfallen är de som simulerar buttons-events (lägga till/ta bort), samt event för input-fältet. Viktigt är även om komponenten, ev. andra child-element renderas korrekt.
+
+3. I detta fall upplever jag inte att det finns några onödiga testfall.
+
+
+Transformera text (jämfört med Eriks&Jonathans kod)
+
+1. I jämförelse med deras kod kan man säga att vi skrev färre tester men i princip har vi båda testat dem viktiga delarna. Båda skrev testfall som kollar om komponenten renderas rätt, om input-fältet finns och om state ändras korrekt.
+
+2. De viktigaste testfallen är enligt mig de som kollar rätt state på dem 3 olika outputs -sträng baklängs, stora bokstäver och nummer upphöjt till två. Att testa input-fältet är också nödvändigt.
+
+3. Enligt min åsikt kunde man "spara" några tester. Erik och Jonathan skrev, enligt mig, ganska många tester (15). De testar varje outputs initial state, ändring och output. Vi har inte testat varje del för sig. Till ex. i en test kollar vi om alla 3 element finns.

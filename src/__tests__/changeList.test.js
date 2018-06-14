@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import {shallow, mount, render } from 'enzyme';
 import ChangeList from '../ChangeList.js';
 
+//testa om det renderas på sidan
 //testa button för att lägga till
-//testa button för att ta bort och kolla state
+//testa button för att ta bort element och kolla state
 //testa input
 //testa listan
 
@@ -18,7 +19,10 @@ describe('test for ChangeList component', ()=>{
   it('renders shallow smoke test', ()=>{
     let wrapper = shallow(<ChangeList/>);
   });
-
+  it('renders inuput correctly', ()=>{
+    let wrapper = shallow(<ChangeList />);
+    expect(wrapper.find('#inputChange').length).toBe(1);
+  });
   it('simulate input onChange', ()=>{
     let wrapper = shallow(<ChangeList />);
   	let wrappedInput = wrapper.find('#inputChange');
@@ -45,7 +49,6 @@ describe('test for ChangeList component', ()=>{
     expect(wrapper.state('list').length).toBe(3);
   });
 
-
   it('should render children when passed in', () => {
     let wrapper = shallow((
       <ChangeList>
@@ -58,16 +61,16 @@ describe('test for ChangeList component', ()=>{
   it('should render <li/> children in list', () => {
     let wrapper = shallow((
       <ol>
-        <li />
+        <li>Guacamole</li>
       </ol>
     ));
-    expect(wrapper.contains(<li/>)).toBe(true);
+    expect(wrapper.contains(<li>Guacamole</li>)).toBe(true);
   });
 
 
   it('simulates click events delete item', () => {
-    let wrapper = mount(<ChangeList />);
-    wrapper.setState({list:["sleep", "eat", "shop"]});
+    let wrapper = shallow(<ChangeList />);
+    wrapper.setState({list:["sleep", "eat", "dance"]});
     expect(wrapper.state('list').length).toBe(3);
     let wrappedButton = wrapper.find('.deleteBtn').at(0);
     wrappedButton.simulate('click');

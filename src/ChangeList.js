@@ -15,25 +15,22 @@ class ChangeList extends Component{
   handleInput = event=>{
     this.setState({inputList: event.target.value, disabled:false})
   }
-  handleDelete = event =>{
-    let item = event.target.name;
-    let newList = []
-    for(let x = 0; x < this.state.list.length; x++){
-      if(this.state.list[x] !== this.state.list[item]){
-        newList.push(this.state.list[x]);
-      }
-    }
-    this.setState({list: newList});
+  handleDelete = deleteItem =>{
+    // this.state.filter(x => x !== action.item);
+    let newList = [...this.state.list]
+    newList = newList.filter((item,index)=> index !== deleteItem);
+    this.setState({ list: newList })
   }
   render(){
     let  listItems = this.state.list.map((item, index) =>
     <li key={index+item}>
       <span>{item}</span>
-      <button name={index} className="deleteBtn" onClick={event => this.handleDelete(event)}>Delete</button>
+      <button className="deleteBtn" onClick={ () => this.handleDelete(index)}>Delete</button>
     </li>)
 
     return(
       <div>
+        <h3>Change list: </h3>
         <input id="inputChange" type="text" placeholder="Write text"
         value={this.state.inputList}
         onChange={this.handleInput}/>

@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 
 /*
-Komponenten ska innehålla ett textfält och två button-element. Den ska dessutom skriva ut 
+Komponenten ska innehålla ett textfält och två button-element. Den ska dessutom skriva ut
 ett tal. Talet ska finnas lagrat i komponentens state. Användaren ska kunna skriva in strängar
-i textfältet. När man klickar på den första knappen ska värdet i state ökas; den andra 
+i textfältet. När man klickar på den första knappen ska värdet i state ökas; den andra
 knappen minskar värdet.
-Om användaren skriver in ett tal i textfältet så ska det ersätta talet som finns lagrat i 
+Om användaren skriver in ett tal i textfältet så ska det ersätta talet som finns lagrat i
 state. Men om användaren skriver in något som inte går att göra om till ett tal så ska värdet
 behållas.*/
 
@@ -20,6 +20,7 @@ class Calculator extends Component {
 	render() {
 		return (
 			<div>
+			  <h3>Calculator: </h3>
 				Type something:<input type="text" id="input" placeholder="Type a number or some text" onKeyPress={this.handleInput}/>
 				<div id="buttons">
 					<button onClick={this.increase} type="button" id="increase">Increase</button>
@@ -38,10 +39,10 @@ class Calculator extends Component {
 
 	}
 	handleInput = event => {
-		console.log(event.key)
+		// console.log(event.key)
 		if (!isNaN(Number(event.key)) && Number(event.key) !== Infinity){
 			if(this.state.number === 0){
-				this.setState({number: Number(event.key), click: false})	
+				this.setState({number: Number(event.key), click: false})
 			} else if (!this.state.click){
 				let prev = String(this.state.number);
 				let next = prev + event.key;
@@ -51,7 +52,7 @@ class Calculator extends Component {
 			}
 		}
 	}
-	
+
 }
 
 export default Calculator;

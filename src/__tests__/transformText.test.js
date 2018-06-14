@@ -60,4 +60,17 @@ describe("test suite for transformText" , () =>{
     input.simulate('change', {target:{ value: 4}} );
     expect(wrapper.state('pow')).toBe(16);
   });
+
+  it('returns correct state with incorrect input - power', ()=>{
+    let wrapper = shallow(<TransformText />);
+    let input =  wrapper.find('input').at(0);
+    input.simulate('change', {target:{ value: 'aaa'}} );
+    expect(wrapper.state('pow')).toBe(0);
+  })
+  it('tests correct state with the negative number', ()=>{
+    let wrapper = shallow(<TransformText />);
+    let input =  wrapper.find('input').at(0);
+    input.simulate('change', {target:{ value: -42}} );
+    expect(wrapper.state('pow')).toBe(0);
+  })
 })

@@ -42,11 +42,12 @@ class TransformText extends Component{
 
   render(){
     return(
-      <div>
-        <input className="tranformInput" type="text" value={this.state.text} onChange={event => this.handleInput(event)} />
+      <div className="transform">
+        <h3>Transform text: </h3>
+        <input className="transformInput" type="text" value={this.state.text} onChange={event => this.handleInput(event)} />
         <div>Text backwords: <span className="backwords"> {this.state.backwords}</span></div>
         <div>Text to upper case: <span className="toUpperCase">{this.state.toUpperCase}</span></div>
-        <div>Number to power of: <span className="power">{this.state.pow}</span></div>
+        <div>Number - to the power of: <span className="power">{this.state.pow}</span></div>
       </div>
     )
   }
