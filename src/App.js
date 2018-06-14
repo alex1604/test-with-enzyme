@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Calculator from './Calculator.js';
 import ChangeList from './ChangeList.js';
+import TransformText from './TransformText.js';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         </header>
         <Calculator/>
         <ChangeList/>
+        <TransformText/>
       </div>
     );
   }
